@@ -2,16 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Background Test</title>
+    <title>Variant 1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
     <style>
+        :root {
+            --c1: rgba(126, 167, 230, .36);
+            --c2: rgba(126, 167, 230, .28);
+            --c3: rgba(126, 167, 230, .22);
+
+            --w2c1: rgba(126, 167, 230, .5);
+            --w2c2: rgba(126, 167, 230, .7);
+
+            --band: rgba(126, 167, 230, .18);
+
+            --blur: 16px;
+            --wave-1-dur: 8s;
+            --wave-2-dur: 5s;
+        }
+
         .main {
-            min-height: 100vh;
-            min-width: 100vw;
-            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            background: black;
             background: linear-gradient(135deg, #66072d 0%, #020b24 40%, #020b24 100%);
-            position: relative;
+            overflow: hidden;
         }
 
         .masked-layer {
@@ -27,73 +42,91 @@
             opacity: 0.6;
         }
 
-        .masked-layer-bg {
+        .waves {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: none;
+        }
+
+        .wave-1 {
+            content: "";
             position: absolute;
-            z-index: 1;
-            top: 0;
-            left: 0;
+            inset: -15%;
+            background:
+                radial-gradient(120% 55% at -10% 28%, var(--c1) 0%, transparent 82%),
+                radial-gradient(85% 45% at 45% 55%,  var(--c2) 0%, transparent 82%),
+                radial-gradient(120% 55% at 110% 74%, var(--c3) 0%, transparent 85%);
+            filter: blur(var(--blur));
+            opacity: .95;
+            pointer-events: none;
+            animation:
+                drift 14s ease-in-out infinite alternate,
+                moveWave1 var(--wave-1-dur) linear infinite forwards;
         }
 
-        .masked-layer-2 {
+        .wave-2 {
+            content: "";
+            opacity: 0;
             position: absolute;
-            z-index: 2;
-            left: 0;
-            top: 0;
-            animation: flyAway 12s linear infinite forwards;
+            pointer-events: none;
+            inset: -15%;
+            background:
+                    radial-gradient(60% 10% at -10% 28%, var(--w2c1) 0%, transparent 100%),
+                    radial-gradient(60% 10% at 0% 38%, var(--w2c2) 0%, transparent 100%),
+                    radial-gradient(60% 10% at 10% 78%, var(--c3) 0%, transparent 100%);
+            filter: blur(var(--blur));
+
+            animation:
+                reveal .6s ease var(--wave-1-dur) forwards,
+                moveWave2 var(--wave-2-dur) linear var(--wave-1-dur) infinite forwards;
         }
 
-        @keyframes flyAway {
-            from {
-                transform: translate(0, 0);
+        @keyframes drift {
+            from { transform: translate3d(-1vw, -1vh, 0) scale(1.02); }
+            to   { transform: translate3d( 1vw,  1vh, 0) scale(1.00); }
+        }
+
+        @keyframes moveWave1 {
+            0% {
+                transform: translate(-60vmax, 30vmax) rotate(34deg) scale(1);
+                opacity: 1;
             }
-            to {
-                transform: translate(100vw, -80vh);
+            60% {
+                transform: translate(10vmax, 0vmax) rotate(40deg) scale(1);
+                opacity: .8;
+            }
+            70% {
+                transform: translate(20vmax, -12vmax) rotate(47deg) scale(1);
+                opacity: .7;
+            }
+            100% {
+                transform: translate(110vmax, 22vmax) rotate(54deg) scale(1.1);
+                opacity: .6;
             }
         }
 
-        .ray {
-                position: absolute;
-                background: radial-gradient(ellipse at 50% 50%, rgba(103,152,255,0.18) 0%, rgba(103,152,255,0.05) 70%, rgba(103,152,255,0) 100%);
-                /*background: #0a6aff;*/
-                border-radius: 50% / 20%;  /* эллипс */
-                pointer-events: none;
-                mix-blend-mode: lighten;
-                filter: blur(10px);
-                opacity: 0.7;
-                z-index: 3;
-                transform: rotate(34deg);
-                animation: moveRay 7s linear infinite forwards;
+        @keyframes moveWave2 {
+            0% {
+                transform: translate(-60vmax, 40vmax) rotate(32deg) scale(1);
+                opacity: .8;
+            }
+            100% {
+                transform: translate(40vmax, -50vmax) rotate(32deg) scale(1);
+                opacity: .4;
+            }
         }
 
-        .ray-group-1 {
-            width: 500px;
-            height: 100px;
-        }
-
-        .ray-group-1-item-1  {
-            left: 180px;
-            bottom: 120px;
-        }
-
-        .ray-group-1-item-2  {
-            left: 340px;
-            bottom: 120px;
-        }
-
-        @keyframes moveRay {
-            0%   { transform: translate(0, 0) rotate(34deg) scale(1); opacity: 0.8; }
-            100% { transform: translate(900px, -700px) rotate(54deg) scale(1.1); opacity: 0.6; }
-        }
+        @keyframes reveal { from { opacity: 0 } to { opacity: .8 } }
     </style>
 </head>
 <body>
-<div class="main">
-    <div class="masked-layer masked-layer-bg"></div>
-
-    <div class="ray ray-group-1 ray-group-1-item-1"></div>
-    <div class="ray ray-group-1 ray-group-1-item-2"></div>
-<!--    <div class="masked-layer masked-layer-2"></div>-->
-</div>
-
+    <div class="main">
+        <div class="waves">
+            <div class="masked-layer"></div>
+            <div class="wave-1"></div>
+            <div class="wave-2"></div>
+        </div>
+    </div>
 </body>
-</html>

@@ -161,80 +161,54 @@
 
 
         .wave {
+            rotate: 38deg;
+            /*opacity: 1;*/
+            perspective: 800px;
             background:
+            /*
                 radial-gradient(
                     27% 5% at 54% 95%,
+                    rgba(0, 100, 255, 0.4) 0%,
+                    rgba(0, 100, 255, 0.4) 80%,
+                    transparent 82%
+                ),
+                radial-gradient(
+                    57% 15% at 54% 85%,
+                    rgba(0, 100, 255, 0.15) 0%,
+                    rgba(0, 100, 255, 0.15) 80%,
+                    transparent 82%
+                );
+             */
+                radial-gradient(
+                    27% 5% at 54% 95%,
+                    rgb(255, 0, 0) 0%,
+                    rgb(255, 0, 0) 80%,
+                    transparent 82%
+                ),
+                radial-gradient(
+                    57% 15% at 54% 85%,
                     rgba(17, 255, 0, 0.9) 0%,
                     rgba(17, 255, 0, 0.9) 80%,
                     transparent 82%
                 );
             filter: blur(30px);
-            opacity: .3;
+            /*opacity: .3;*/
             pointer-events: none;
             position: absolute;
             inset: -15%;
-            transform-origin: 120% 120%;
-            transform: translate(-20%, -20%);
-            animation:
-                    moveWave2k 8s linear infinite forwards;
+            transform-origin: 110% 120%;
+            transform: translate(-15%, 85%);
+            /*animation: moveWave2k 8s linear infinite forwards;*/
         }
-
 
         @keyframes moveWave2k {
             0% {
-                transform: translate(-34%, 70%) rotate(38deg) scaleX(1) scaleY(1);
+                transform: translate(-10%, 95%) scaleX(1) scaleY(1) scaleZ(1);
                 opacity: 1;
             }
-            20% {
-                transform: translate(-33%, 70%) rotate(42deg) scaleX(1) scaleY(1.5);
+            100% {
+                transform: scaleX(0.2) scaleY(1.7) scaleZ(3);
                 opacity: 0.9;
-            }
-            100% {
-                transform: translate(-13%, 70%) rotate(46deg) scaleX(0.6) scaleY(2);
-                opacity: 0.7;
-            }
-        }
-
-        /*scaleX(0.7) scaleY(2);*/
-        @keyframes moveWave {
-            0% {
-                transform: translate(0vmax, 0vmax) rotate(38deg) scaleY(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(24vmax, -18vmax) rotate(42deg) scaleY(1.5);
-                opacity: 0.7;
-            }
-        }
-
-        @keyframes foldDown {
-            0% {
-                transform: translateY(0) rotateX(0deg) scaleY(1);
-            }
-            50% {
-                transform: translateY(-20px) rotateX(0deg) scaleY(1);
-            }
-            100% {
-                transform: translateY(80px) rotateX(75deg) scaleY(0.85);
-            }
-        }
-
-        @keyframes moveWave1 {
-            0% {
-                transform: translate(-60vmax, 30vmax) rotate(34deg) scale(1);
-                opacity: 1;
-            }
-            60% {
-                transform: translate(10vmax, 0vmax) rotate(40deg) scale(1);
-                opacity: .8;
-            }
-            70% {
-                transform: translate(20vmax, -12vmax) rotate(47deg) scale(1);
-                opacity: .7;
-            }
-            100% {
-                transform: translate(110vmax, 22vmax) rotate(54deg) scale(1.1);
-                opacity: .6;
             }
         }
     </style>

@@ -9,13 +9,13 @@
         :root {
             --rot-30: 32deg;
             --ins-30: -100% -25%;
-            --bm: darken;
+            --bm: multiply;
         }
 
         .wrapper {
             width: 100vw;
             height: 100vh;
-            padding: 20%;
+            padding: 10%;
             position: relative;
             background: black;
             box-sizing: border-box;
@@ -40,6 +40,22 @@
             /*width: 100%;*/
         }
 
+        .static-fog {
+            position: absolute;
+            inset: -12%;
+            pointer-events: none;
+            z-index: 1;
+
+            background:
+                    radial-gradient(42% 34% at 78% 68%, rgba(58, 122, 255, 0.22) 0%, rgba(58, 122, 255, 0.12) 38%, rgba(58, 122, 255, 0) 72%),
+                    radial-gradient(36% 28% at 56% 50%, rgba(47, 111, 245, 0.16) 0%, rgba(47, 111, 245, 0.08) 42%, rgba(47, 111, 245, 0) 74%),
+                    radial-gradient(34% 26% at 18% 74%, rgba(43, 109, 238, 0.18) 0%, rgba(43, 109, 238, 0.08) 40%, rgba(43, 109, 238, 0) 72%),
+                    radial-gradient(55% 20% at 44% 38%, rgba(44, 118, 255, 0.09) 0%, rgba(44, 118, 255, 0.05) 35%, rgba(44, 118, 255, 0) 78%),
+                    radial-gradient(48% 18% at 22% 92%, rgba(36, 104, 235, 0.16) 0%, rgba(36, 104, 235, 0.07) 36%, rgba(36, 104, 235, 0) 78%);
+
+            filter: blur(42px);
+            opacity: 1;
+        }
 
         .static-rays-40 { /* 40 */
             rotate: 40deg;
@@ -178,26 +194,36 @@
             perspective: 800px;
             background:
                 radial-gradient(
-                    27% 3% at 45% 91%,
-                    rgba(17, 255, 0, 0.9) 0%,
-                    /*rgba(0, 100, 255, 0.01) 0%,*/
-                    /*rgba(0, 100, 255, 0.01) 80%,*/
+                    32% 3.5% at 45% 91%,
+                    rgba(0, 100, 255, 0.08) 0%,
+                    /*rgba(0, 100, 255, 0.1) 80%,*/
+                    transparent 100%
+                ),
+                radial-gradient(
+                    27% 3.5% at 45% 91%,
+                    rgba(0, 100, 255, 0.08) 0%,
+                    rgba(0, 100, 255, 0.1) 80%,
                     transparent 82%
                 ),
                 radial-gradient(
-                    52% 12% at 51% 84%,
-                    rgba(255, 251, 0, 0.6) 0%,
-                    /*rgba(0, 100, 255, 0.005) 0%,*/
-                    /*rgba(0, 100, 255, 0.01) 90%,*/
-                    transparent 100%
-                ),
-                radial-gradient(
-                    29% 5% at 60% 67%,
-                    rgba(17, 255, 0, 0.9) 0%,
-                    /*rgba(0, 100, 255, 0.12) 0%,*/
-                    /*rgba(0, 100, 255, 0.05) 70%,*/
-                    transparent 100%
+                    52% 7% at 40% 87%,
+                    rgba(0, 100, 255, 0.05) 0%,
+                    rgba(0, 100, 255, 0.05) 80%,
+                    transparent 82%
                 );
+                /*radial-gradient(*/
+                /*    52% 12% at 51% 84%,*/
+                /*    !*rgba(0, 100, 255, 0.005) 0%,*!*/
+                /*    !*rgba(0, 100, 255, 0.01) 90%,*!*/
+                /*    transparent 100%*/
+                /*),*/
+                /*radial-gradient(*/
+                /*    29% 5% at 60% 67%,*/
+                /*    rgba(17, 255, 0, 0.9) 0%,*/
+                /*    !*rgba(0, 100, 255, 0.12) 0%,*!*/
+                /*    !*rgba(0, 100, 255, 0.05) 70%,*!*/
+                /*    transparent 100%*/
+                /*);*/
                 /*radial-gradient(*/
                 /*        27% 5% at 62% 91%,*/
                 /*        rgb(255, 0, 0) 0%,*/
@@ -230,36 +256,45 @@
                 /*    transparent 82%*/
                 );
             /*filter: blur(10px);*/
-            /*will-change: filter;*/
+            will-change: transform, filter;
             pointer-events: none;
             position: absolute;
             /*transform: translate(-15%, 85%);*/
         }
 
         .wave-1 {
-            transform-origin: 100% 80%;
+            transform-origin: 100% 100%;
+            transform: translate(-10%, 3%);
             /*background: rgba(102, 255, 60, 0.5);*/
-            animation: moveWave2k 2s linear infinite forwards;
+            animation: moveWave2k 12s linear infinite forwards;
+            animation-delay: -3s;
         }
 
         .wave-2 {
             transform-origin: 110% 52%;
             /*background: rgba(193, 84, 255, 0.5);*/
             animation-delay: 0.3s;
-            animation: moveWave2k 8s linear infinite forwards;
+            animation: moveWave2k 10s linear infinite forwards;
         }
 
         @keyframes moveWave2k {
             0% {
-                transform: scaleX(1) scaleY(1) scaleZ(1);
+                transform: translate(-25%, 20%) scale(1, 1);
+                filter: blur(60px);
+            }
+            35% {
+                filter: blur(8px);
             }
             40% {
-                /*transform: translate(10%, -20%) scaleX(0.8) scaleY(1.2) scaleZ(1.5);*/
-                transform: scaleX(0.8) scaleY(0.6) scaleZ(1.5);
+                transform: translate(-21%, 0%) scale(0.8, 1);
+                filter: blur(16px);
+            }
+            70% {
+                transform: translate(-21%, -20%) scale(0.35, 1);
+                filter: blur(30px);
             }
             100% {
-                /*transform: translate(20%, -60%) scaleX(0.2) scaleY(1.7) scaleZ(3);*/
-                transform: scaleX(0.2) scaleY(1.7) scaleZ(3);
+                transform: translate(-21%, -35%) scale(0.1, 1);
             }
         }
     </style>
@@ -267,6 +302,7 @@
 <body>
 <div class="wrapper">
     <div class="red-blue-background">
+        <div class="static-fog"></div>
         <div class="static-rays-0"></div>
         <div class="static-rays-40"></div>
         <div class="static-rays-32"></div>

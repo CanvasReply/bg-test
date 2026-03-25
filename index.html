@@ -12,22 +12,23 @@
             --bm: multiply;
         }
 
-        .wrapper {
+        body {
             width: 100vw;
             height: 100vh;
-            padding: 10%;
-            position: relative;
             background: black;
+        }
+
+        .wrapper {
+            padding: 5% 10%;
+            position: relative;
             box-sizing: border-box;
         }
 
         .red-blue-background {
             border: 1px solid dimgrey;
             background: linear-gradient(135deg, #66072d 0%, #020b24 20%, #020b24 100%);
-            /*overflow: hidden;*/
+            overflow: hidden;
             position: relative;
-            /*filter: blur(5px);*/
-            /*will-change: filter;*/
 
             /* main variant - full hd, 2k, 4k */
             aspect-ratio: 16 / 9;
@@ -48,8 +49,8 @@
 
             background:
                     radial-gradient(42% 34% at 78% 68%, rgba(58, 122, 255, 0.22) 0%, rgba(58, 122, 255, 0.12) 38%, rgba(58, 122, 255, 0) 72%),
-                    radial-gradient(36% 28% at 56% 50%, rgba(47, 111, 245, 0.16) 0%, rgba(47, 111, 245, 0.08) 42%, rgba(47, 111, 245, 0) 74%),
-                    radial-gradient(34% 26% at 18% 74%, rgba(43, 109, 238, 0.18) 0%, rgba(43, 109, 238, 0.08) 40%, rgba(43, 109, 238, 0) 72%),
+                    radial-gradient(36% 28% at 51% 61%, rgba(47, 111, 245, 0.22) 0%, rgba(47, 111, 245, 0.12) 42%, rgba(47, 111, 245, 0) 74%),
+                    radial-gradient(34% 26% at 8% 80%, rgba(43, 109, 238, 0.18) 0%, rgba(43, 109, 238, 0.08) 40%, rgba(43, 109, 238, 0) 72%),
                     radial-gradient(55% 20% at 44% 38%, rgba(44, 118, 255, 0.09) 0%, rgba(44, 118, 255, 0.05) 35%, rgba(44, 118, 255, 0) 78%),
                     radial-gradient(48% 18% at 22% 92%, rgba(36, 104, 235, 0.16) 0%, rgba(36, 104, 235, 0.07) 36%, rgba(36, 104, 235, 0) 78%);
 
@@ -59,12 +60,13 @@
 
         .static-rays-40 { /* 40 */
             rotate: 40deg;
+            filter: blur(32px);
             background:
                 radial-gradient(
-                    12% 3% at 25% 65%,
+                    12% 2% at 25% 65%,
                     /*rgb(255, 0, 0) 0%,*/
-                    rgba(0, 100, 255, 0.1) 0%,
-                    rgba(0, 100, 255, 0.1) 35%,
+                    rgba(0, 100, 255, 0.15) 0%,
+                    rgba(0, 100, 255, 0.15) 85%,
                     transparent 100%
                 );
             pointer-events: none;
@@ -76,68 +78,38 @@
         .static-rays-32 { /* 32 */
             rotate: var(--rot-30);
             inset: var(--ins-30);
-            background-blend-mode: var(--bm);
+            filter: blur(30px);
             background:
                 radial-gradient(
-                    23% 4% at 45% 63%,
-                    rgba(0, 100, 255, 0.1) 0%,
-                    rgba(0, 100, 255, 0.1) 15%,
+                    20% 3% at 50% 63%,
+                    rgba(0, 100, 255, 0.2) 0%,
+                    rgba(0, 100, 255, 0.15) 80%,
                     transparent 100%
                 ),
                 radial-gradient(
-                    47% 12% at 49% 50%,
+                    47% 9% at 49% 50%,
                     rgba(0, 100, 255, 0.01) 0%,
                     rgba(0, 100, 255, 0.01) 90%,
                     transparent 100%
                 ),
                 radial-gradient(
-                    24% 4% at 44% 50%,
+                    24% 3% at 44% 50%,
                     rgba(0, 100, 255, 0.15) 0%,
-                    rgba(0, 100, 255, 0.15) 15%,
+                    rgba(0, 100, 255, 0.15) 80%,
+                    transparent 100%
+                ),
+                radial-gradient(
+                    5% 2% at 53% 55%,
+                    rgba(0, 100, 255, 0.15) 0%,
+                    rgba(0, 100, 255, 0.15) 80%,
+                    transparent 100%
+                ),
+                radial-gradient(
+                    8% 3% at 65% 46%,
+                    rgba(0, 100, 255, 0.15) 0%,
+                    rgba(0, 100, 255, 0.15) 60%,
                     transparent 100%
                 );
-            /*        radial-gradient(*/
-            /*                7% 6% at 48% 85%,*/
-            /*                rgba(0, 100, 255, 0.35) 0%,*/
-            /*                rgba(0, 100, 255, 0.35) 80%,*/
-            /*                transparent 100%*/
-            /*        ),*/
-            /*        radial-gradient(*/
-            /*                7% 6% at 54% 75%,*/
-            /*                rgba(0, 100, 255, 0.35) 0%,*/
-            /*                rgba(0, 100, 255, 0.35) 80%,*/
-            /*                transparent 100%*/
-            /*        ),*/
-            /*        radial-gradient(*/
-            /*                12% 12% at 62% 58%,*/
-            /*                rgba(0, 100, 255, 0.15) 0%,*/
-            /*                rgba(0, 100, 255, 0.15) 80%,*/
-            /*                transparent 100%*/
-            /*        ),*/
-            /*        radial-gradient(*/
-            /*                12% 12% at 59% 60%,*/
-            /*                rgba(0, 100, 255, 0.15) 0%,*/
-            /*                rgba(0, 100, 255, 0.15) 80%,*/
-            /*                transparent 100%*/
-            /*        ),*/
-            /*        radial-gradient(*/
-            /*                8% 8% at 66% 54%,*/
-            /*                rgba(0, 100, 255, 0.35) 0%,*/
-            /*                rgba(0, 100, 255, 0.35) 80%,*/
-            /*                transparent 100%*/
-            /*        ),*/
-            /*        radial-gradient(*/
-            /*                5% 5% at 74% 49%,*/
-            /*                rgba(0, 100, 255, 0.35) 0%,*/
-            /*                rgba(0, 100, 255, 0.35) 80%,*/
-            /*                transparent 100%*/
-            /*        ),*/
-            /*        radial-gradient(*/
-            /*                32% 30% at 67% 20%,*/
-            /*                rgba(0, 100, 255, 0.15) 0%,*/
-            /*                rgba(0, 100, 255, 0.15) 80%,*/
-            /*                transparent 100%*/
-            /*        );*/
             pointer-events: none;
             position: absolute;
             z-index: 1;
@@ -152,24 +124,6 @@
                     rgba(0, 100, 255, 0.08) 45%,
                     transparent 100%
                 );
-                /*radial-gradient(*/
-                /*    35% 3% at 55% 81%,*/
-                /*    rgba(0, 100, 255, 1) 0%,*/
-                /*    rgba(0, 100, 255, 1) 80%,*/
-                /*    transparent 100%*/
-                /*),*/
-                /*radial-gradient(*/
-                /*        10% 1px at 35% 80%,*/
-                /*        rgba(0, 100, 255, 0.25) 0%,*/
-                /*        rgba(0, 100, 255, 0.25) 80%,*/
-                /*        transparent 100%*/
-                /*),*/
-                /*radial-gradient(*/
-                /*        25% 1px at 75% 80%,*/
-                /*        rgba(0, 100, 255, 0.25) 0%,*/
-                /*        rgba(0, 100, 255, 0.25) 80%,*/
-                /*        transparent 100%*/
-                /*);*/
             position: absolute;
             inset: 0;
             z-index: 1;
@@ -189,112 +143,131 @@
 
         .wave {
             rotate: var(--rot-30);
-            inset: var(--ins-30);
             background-blend-mode: var(--bm);
+            mix-blend-mode: var(--bm);
             perspective: 800px;
-            background:
-                radial-gradient(
-                    32% 3.5% at 45% 91%,
-                    rgba(0, 100, 255, 0.08) 0%,
-                    /*rgba(0, 100, 255, 0.1) 80%,*/
-                    transparent 100%
-                ),
-                radial-gradient(
-                    27% 3.5% at 45% 91%,
-                    rgba(0, 100, 255, 0.08) 0%,
-                    rgba(0, 100, 255, 0.1) 80%,
-                    transparent 82%
-                ),
-                radial-gradient(
-                    52% 7% at 40% 87%,
-                    rgba(0, 100, 255, 0.05) 0%,
-                    rgba(0, 100, 255, 0.05) 80%,
-                    transparent 82%
-                );
-                /*radial-gradient(*/
-                /*    52% 12% at 51% 84%,*/
-                /*    !*rgba(0, 100, 255, 0.005) 0%,*!*/
-                /*    !*rgba(0, 100, 255, 0.01) 90%,*!*/
-                /*    transparent 100%*/
-                /*),*/
-                /*radial-gradient(*/
-                /*    29% 5% at 60% 67%,*/
-                /*    rgba(17, 255, 0, 0.9) 0%,*/
-                /*    !*rgba(0, 100, 255, 0.12) 0%,*!*/
-                /*    !*rgba(0, 100, 255, 0.05) 70%,*!*/
-                /*    transparent 100%*/
-                /*);*/
-                /*radial-gradient(*/
-                /*        27% 5% at 62% 91%,*/
-                /*        rgb(255, 0, 0) 0%,*/
-                /*        rgba(120, 160, 220, 0.2) 20%,*/
-                /*        rgba(120, 160, 220, 0.2) 90%,*/
-                /*        transparent*/
-                /*),*/
-                /*radial-gradient(*/
-                /*    57% 16% at 54% 82%,*/
-                /*    rgb(39, 68, 159, 0.2) 0%,*/
-                /*    rgb(39, 68, 159, 0.2) 80%,*/
-                /*    transparent*/
-                /*),*/
-                /*radial-gradient(*/
-                /*    46% 12% at 64% 65%,*/
-                /*    rgb(39, 68, 159, 0.3) 0%,*/
-                /*    rgb(39, 68, 159, 0.3) 90%,*/
-                /*    transparent 82%*/
-                /*),*/
-                /*radial-gradient(*/
-                /*    65% 22% at 64% 34%,*/
-                /*    rgb(39, 68, 159, 0.2) 0%,*/
-                /*    rgb(39, 68, 159, 0.2) 80%,*/
-                /*    transparent 82%*/
-                /*);*/
-                /*radial-gradient(*/
-                /*    35% 22% at 64% -34%,*/
-                /*    rgba(17, 255, 0, 0.9) 0%,*/
-                /*    rgba(17, 255, 0, 0.9) 80%,*/
-                /*    transparent 82%*/
-                );
-            /*filter: blur(10px);*/
             will-change: transform, filter;
             pointer-events: none;
             position: absolute;
-            /*transform: translate(-15%, 85%);*/
         }
 
         .wave-1 {
+            inset: var(--ins-30);
             transform-origin: 100% 100%;
-            transform: translate(-10%, 3%);
+            /*transform: translate(-10%, 3%);*/
             /*background: rgba(102, 255, 60, 0.5);*/
-            animation: moveWave2k 12s linear infinite forwards;
-            animation-delay: -3s;
+
+            background:
+                    radial-gradient(
+                            40% 3% at 50% 91%,
+                            rgba(0, 100, 255, 0.14) 0%,
+                            rgba(0, 100, 255, 0.14) 80%,
+                            transparent 90%
+                    ),
+                    radial-gradient(
+                            33% 3% at 50% 91%,
+                            rgba(0, 100, 255, 0.08) 0%,
+                            rgba(0, 100, 255, 0.1) 80%,
+                            transparent 82%
+                    ),
+                    radial-gradient(
+                            52% 7% at 40% 87%,
+                            rgba(0, 100, 255, 0.14) 0%,
+                            rgba(0, 100, 255, 0.14) 60%,
+                            transparent 90%
+                    ),
+                    radial-gradient(
+                            52% 12% at 51% 71%,
+                            rgba(0, 100, 255, 0.14) 0%,
+                            rgba(0, 100, 255, 0.14) 60%,
+                            transparent 100%
+                    ),
+                radial-gradient(
+                    40% 7% at 60% 68%,
+                    rgba(0, 100, 255, 0.1) 0%,
+                    rgba(0, 100, 255, 0.1) 60%,
+                    transparent 90%
+                );
+
+            animation: moveWave1 12s linear -3s infinite forwards;
         }
 
-        .wave-2 {
-            transform-origin: 110% 52%;
-            /*background: rgba(193, 84, 255, 0.5);*/
-            animation-delay: 0.3s;
-            animation: moveWave2k 10s linear infinite forwards;
-        }
-
-        @keyframes moveWave2k {
+        @keyframes moveWave1 {
             0% {
                 transform: translate(-25%, 20%) scale(1, 1);
-                filter: blur(60px);
+                opacity: 0;
+                filter: blur(8px);
             }
             35% {
-                filter: blur(8px);
+                opacity: 1;
             }
             40% {
                 transform: translate(-21%, 0%) scale(0.8, 1);
-                filter: blur(16px);
+                filter: blur(12px);
             }
             70% {
                 transform: translate(-21%, -20%) scale(0.35, 1);
-                filter: blur(30px);
+                filter: blur(20px);
             }
             100% {
                 transform: translate(-21%, -35%) scale(0.1, 1);
+            }
+        }
+
+        .wave-2 {
+            inset: -40%;
+            /*transform: translate(0, 15%);*/
+            filter: blur(15px);
+            background:
+                    radial-gradient(
+                            38% 11% at 69% 15%,
+                            rgba(0, 100, 255, 0.12) 0%,
+                            rgba(0, 100, 255, 0.12) 60%,
+                            transparent 90%
+                    ),
+                    radial-gradient(
+                            52% 12% at 45% 81%,
+                            rgba(0, 100, 255, 0.14) 0%,
+                            rgba(0, 100, 255, 0.14) 60%,
+                            transparent 100%
+                    );
+
+            transform: translate(0, 20%);
+            animation:
+                    pauseStart 5s linear 0s 1 forwards,
+                    moveWave2 12s linear 5s infinite;
+        }
+
+        @keyframes moveWave2 {
+            0% {
+                transform: translate(0, 20%);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translate(0, -50%);
+                opacity: 0.3;
+            }
+
+            50.01% {
+                transform: translate(0, 60%);
+                opacity: 0.1;
+            }
+
+            100% {
+                transform: translate(0, 20%);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pauseStart {
+            from {
+                transform: translate(0, 20%);
+                opacity: 1;
+            }
+            to {
+                transform: translate(0, 20%);
+                opacity: 1;
             }
         }
     </style>
@@ -308,7 +281,7 @@
         <div class="static-rays-32"></div>
         <div class="waves">
             <div class="wave wave-1"></div>
-<!--            <div class="wave wave-2"></div>-->
+            <div class="wave wave-2"></div>
         </div>
     </div>
 </div>
